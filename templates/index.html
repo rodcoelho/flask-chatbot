@@ -39,13 +39,12 @@
     </div>
 
 {% if tweets %}
-    {% for name, tweet in tweets %}
+    {% for tweet, name in tweets %}
             <br>{{ name }} - {{ tweet }}<br>
     {% endfor %}
 {% else %}
     There are no tweets on the network! Tweet today!
 {% endif %}
-
 
 
 </body>

@@ -16,8 +16,6 @@ def index():
     h1 = 'Home'
     title = 'Flask-Twitter'
     tweets = orm.get_all_tweets()
-    print(tweets)
-
     tweets = tweets[::-1]
     return render_template('index.html', tweets=tweets)
 
@@ -26,12 +24,12 @@ def showSignUp():
     return render_template('signup.html')
 
 
-@app.route('/signUp', methods=["GET", "POST"])
-def signUp():
-    if _name:
-        return json.dumps({'html':'<span>All fields good!</span>'})
-    else:
-        return json.dumps({'html':'<span>Enter the required fields</span>'})
+# @app.route('/signUp', methods=["GET", "POST"])
+# def signUp():
+#     if _name:
+#         return json.dumps({'html':'<span>All fields good!</span>'})
+#     else:
+#         return json.dumps({'html':'<span>Enter the required fields</span>'})
 
 
 @app.route('/user', methods=["GET", "POST"])
@@ -43,7 +41,7 @@ def lookup():
     # check if user exists, if not create account, either way return userID
     pk = orm.check_if_user_exists(_name)
     # get all tweets from db
-    tweets = orm.get_tweets_if_any(pk)
+    tweets = orm.get_all_tweets()
     tweets = tweets[::-1]
     return render_template('user.html', h1=h1, title=title, _name=_name, tweets=tweets)
 
@@ -60,10 +58,9 @@ def tweets():
     # post the new tweet
     orm.post_tweet(_tweet, pk)
     # get all tweets from db
-    tweets = orm.get_tweets_if_any(pk)
+    tweets = orm.get_all_tweets()
     tweets = tweets[::-1]
     return render_template('tweets.html', h1=h1, title=title, _name=_name, tweets=tweets)
-
 
 
 app.secret_key = 'poop'

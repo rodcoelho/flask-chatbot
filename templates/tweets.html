@@ -9,8 +9,8 @@
 {{ _name }}'s Tweets <br><br>
 
 {% if tweets %}
-    {% for number, tweet in tweets %}
-            <br>{{ number }} - {{ tweet }}<br>
+    {% for tweet, name in tweets %}
+            <br>{{ name }} - {{ tweet }}<br>
     {% endfor %}
 {% else %}
     You have no tweets yet! Write one today!

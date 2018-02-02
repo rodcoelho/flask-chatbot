@@ -55,7 +55,7 @@ def get_all_tweets():
 
     # get all tweets with userID
     cursor.execute("""
-                        SELECT USERS.name, TWEETS.tweet FROM users JOIN tweets ON users.pk = tweets.userID;
+                        SELECT TWEETS.tweet, USERS.name FROM tweets INNER JOIN users on users.pk = tweets.userID;
                                         """.format())
     tweets = cursor.fetchall()
     return tweets
@@ -67,5 +67,5 @@ def post_tweet(words, userID):
     cursor.execute("""
             INSERT INTO tweets(userID,tweet)
             VALUES ('{}','{}');
-                 """.format(str(userID), str(words)))
+                 """.format(str(userID[0]), str(words)))
     connection.commit()
