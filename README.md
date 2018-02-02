@@ -1,6 +1,6 @@
 ## Flitter 
 
-This assumes you have the latest version of Python3 and Flask
+Welcome to my recreation of Twitter on Flask. This assumes you have the latest version of Python3 and Flask.
 
 #### Step 1: Clone the repository
 
@@ -20,7 +20,7 @@ Run `$ ./run.sh` on your terminal
 
 On your browser visit: `http://127.0.0.1:5000/`
 
-Sign In and tweet away. To log out just click the Home button.
+Sign In to create a user - then tweet away. To log out or switch users just click the Home button.
 
 #### Step 4: Close the application
 
