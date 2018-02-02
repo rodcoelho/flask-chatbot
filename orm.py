@@ -49,6 +49,16 @@ def get_tweets_if_any(pk):
     tweets = cursor.fetchall()
     return tweets
 
+def get_all_tweets():
+    connection = sqlite3.connect('db/twitter.db')
+    cursor = connection.cursor()
+
+    # get all tweets with userID
+    cursor.execute("""
+                        SELECT USERS.name, TWEETS.tweet FROM users JOIN tweets ON users.pk = tweets.userID;
+                                        """.format())
+    tweets = cursor.fetchall()
+    return tweets
 
 def post_tweet(words, userID):
     connection = sqlite3.connect('db/twitter.db')

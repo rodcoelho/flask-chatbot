@@ -15,8 +15,11 @@ cursor = connection.cursor()
 def index():
     h1 = 'Home'
     title = 'Flask-Twitter'
-    return render_template('index.html')
+    tweets = orm.get_all_tweets()
+    print(tweets)
 
+    tweets = tweets[::-1]
+    return render_template('index.html', tweets=tweets)
 
 @app.route('/showSignUp', methods=["GET", "POST"])
 def showSignUp():
