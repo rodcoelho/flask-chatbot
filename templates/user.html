@@ -6,7 +6,7 @@
         <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Tweet" required autofocus>
         <button id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="submit">Post</button>
 </form>
-{{ _name }}'s Tweets <br><br>
+<h5> The feed:</h5><br>
 
 {% if tweets %}
     {% for tweet, name in tweets %}
