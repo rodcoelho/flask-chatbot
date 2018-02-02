@@ -24,12 +24,12 @@ def showSignUp():
     return render_template('signup.html')
 
 
-# @app.route('/signUp', methods=["GET", "POST"])
-# def signUp():
-#     if _name:
-#         return json.dumps({'html':'<span>All fields good!</span>'})
-#     else:
-#         return json.dumps({'html':'<span>Enter the required fields</span>'})
+@app.route('/signUp', methods=["GET", "POST"])
+def signUp():
+    if _name:
+        return json.dumps({'html':'<span>All fields good!</span>'})
+    else:
+        return json.dumps({'html':'<span>Enter the required fields</span>'})
 
 
 @app.route('/user', methods=["GET", "POST"])

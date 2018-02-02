@@ -37,16 +37,23 @@
 
 
     </div>
-<h5> The feed:</h5>
-{% if tweets %}
-    {% for tweet, name in tweets %}
-            <br>{{ name }} - {{ tweet }}<br>
-    {% endfor %}
-{% else %}
-    There are no tweets on the network! Tweet today!
-{% endif %}
-
+<div class="container">
+    <div class="jumbotron">
+  <h5>The Feed:</h5>
+        <p class="lead"></p>
+        {% if tweets %}
+            {% for tweet, name in tweets %}
+        <p class="lead">{{ name }} - {{ tweet }}</p>
+            {% endfor %}
+        {% else %}
+        <p class="lead">There are no tweets on the network! Tweet today!</p>
+        {% endif %}
+</div>
+</div>
 
 </body>
 
 </html>
+
+
+

@@ -6,13 +6,18 @@
         <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Tweet" required autofocus>
         <button id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="submit">Post</button>
 </form>
-<h5> The feed:</h5><br>
-
-{% if tweets %}
-    {% for tweet, name in tweets %}
-            <br>{{ name }} - {{ tweet }}<br>
-    {% endfor %}
-{% else %}
-    You have no tweets yet! Write one today!
-{% endif %}
+    </div>
+<div class="container">
+    <div class="jumbotron">
+  <h5>The Feed:</h5>
+        <p class="lead"></p>
+        {% if tweets %}
+            {% for tweet, name in tweets %}
+        <p class="lead">{{ name }} - {{ tweet }}</p>
+            {% endfor %}
+        {% else %}
+        <p class="lead">There are no tweets on the network! Tweet today!</p>
+        {% endif %}
+</div>
+</div>
 {% endblock %}
