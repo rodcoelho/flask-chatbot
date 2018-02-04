@@ -1,6 +1,8 @@
 ## Flitter 
 
-Welcome to my Twitter clone on Flask. This assumes you have the latest version of Python3 and Flask.
+Twitter cloned on Flask. 
+
+This assumes you have the latest version of Python3 and Flask.
 
 #### Step 1: Clone the repository
 
