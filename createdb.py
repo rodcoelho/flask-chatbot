@@ -15,6 +15,7 @@ CREATE TABLE tweets(
 pk INTEGER,
 userID INTEGER,
 tweet VARCHAR,
+response VARCHAR,
 FOREIGN KEY(userID) REFERENCES users(pk),
 PRIMARY KEY(pk))
 ;""")

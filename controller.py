@@ -3,7 +3,7 @@
 from flask import Flask, render_template, request, session, json
 app = Flask(__name__)
 
-import sqlite3
+import os, sqlite3
 
 import orm
 
@@ -56,8 +56,9 @@ def tweets():
     pk = orm.check_if_user_exists(_name)
     # get the new tweet
     _tweet = request.form['inputName']
+    bot_input = chatterbot.get_response(_tweet+'\n')
     # post the new tweet
-    orm.post_tweet(_tweet, pk)
+    orm.post_tweet(_tweet, bot_input, pk)
     # get all tweets from db
     tweets = orm.get_all_tweets()
     tweets = tweets[::-1]
@@ -67,5 +68,55 @@ def tweets():
 app.secret_key = 'poop'
 
 if __name__ == '__main__':
+    ####################################################################################################
+    ########################################### CHATBOT LOAD ###########################################
+    ####################################################################################################
+    from chatterbot import ChatBot
+
+    linkedin = 'https://www.linkedin.com/in/rodcoelho/'
+    github = 'https://github.com/rodcoelho'
+    new = 2
+
+    from chatterbot.trainers import ListTrainer, ChatterBotCorpusTrainer
+
+    chatterbot = ChatBot(
+        'ChatBot',
+        storage_adapter='chatterbot.storage.SQLStorageAdapter',
+        logic_adapters=[
+            'chatterbot.logic.BestMatch',
+            'chatterbot.logic.MathematicalEvaluation',
+            'chatterbot.logic.TimeLogicAdapter'
+        ],
+        database='./database.sqlite3',
+        filters=["chatterbot.filters.RepetitiveResponseFilter"]
+    )
+
+    # how to train the bot to respond
+    chatterbot.set_trainer(ListTrainer)
+    linkedin_list = ['CV', 'Resume', 'cv', 'resume', 'linkedin', 'Linkedin']
+    github_list = ['Git', 'git', 'github', 'Github', 'projects']
+
+    for words in linkedin_list:
+        chatterbot.train([words, linkedin])
+    for words in github_list:
+        chatterbot.train([words, github])
+    chatterbot.train([
+        "Who is Rod?",
+        "LINK TO ABOUT PAGE"])
+
+    chatterbot.set_trainer(ChatterBotCorpusTrainer)
+    chatterbot.train("chatterbot.corpus.english.greetings")
+    chatterbot.train("chatterbot.corpus.english.conversations")
+    def openwebsite(link):
+        os.system('python -mwebbrowser {}'.format(link))
+    def clearmemory():
+        os.system('rm database.sqlite3')
+        os.system('clear')
+
+    ####################################################################################################
+    ########################################### CHATBOT LOAD ###########################################
+    ####################################################################################################
+
     app.run(debug=True)
     session['SECRET_KEY'] = 'poop'
+

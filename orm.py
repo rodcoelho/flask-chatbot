@@ -43,11 +43,12 @@ def get_tweets_if_any(pk):
 
     # get all tweets with userID
     cursor.execute("""
-                    SELECT pk, tweet FROM tweets WHERE userID = '{}'
+                    SELECT pk, tweet, response FROM tweets WHERE userID = '{}'
                                 ;
                                     """.format(pk))
     tweets = cursor.fetchall()
     return tweets
+
 
 def get_all_tweets():
     connection = sqlite3.connect('db/twitter.db')
@@ -55,17 +56,18 @@ def get_all_tweets():
 
     # get all tweets with userID
     cursor.execute("""
-                        SELECT TWEETS.tweet, USERS.name FROM tweets INNER JOIN users on users.pk = tweets.userID;
+                        SELECT TWEETS.tweet, USERS.name, TWEETS.response FROM tweets INNER JOIN users on users.pk = tweets.userID;
                                         """.format())
     tweets = cursor.fetchall()
     return tweets
 
-def post_tweet(words, userID):
+
+def post_tweet(words, botresponse, userID):
     connection = sqlite3.connect('db/twitter.db')
     cursor = connection.cursor()
 
     cursor.execute("""
-            INSERT INTO tweets(userID,tweet)
-            VALUES ('{}','{}');
-                 """.format(str(userID[0]), str(words)))
+            INSERT INTO tweets(userID,tweet,response)
+            VALUES ('{}','{}','{}');
+                 """.format(str(userID[0]), str(words), str(botresponse)))
     connection.commit()
