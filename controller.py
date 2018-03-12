@@ -26,6 +26,7 @@ def showSignUp():
 
 @app.route('/signUp', methods=["GET", "POST"])
 def signUp():
+    _name = request.form['inputName']
     if _name:
         return json.dumps({'html':'<span>All fields good!</span>'})
     else:
@@ -68,4 +69,3 @@ app.secret_key = 'poop'
 if __name__ == '__main__':
     app.run(debug=True)
     session['SECRET_KEY'] = 'poop'
-

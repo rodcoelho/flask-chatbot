@@ -43,7 +43,15 @@
         <p class="lead"></p>
         {% if tweets %}
             {% for tweet, name in tweets %}
-        <p class="lead">{{ name }} - {{ tweet }}</p>
+              <div class="card mb-3 text-center bg-dark text-white">
+                  <div class="card-body">
+                    <blockquote class="card-blockquote">
+                     <p class="lead" align="left" >{{ name }} - {{ tweet }}</p>
+                    </blockquote>
+                  </div>
+                </div>
+
+
             {% endfor %}
         {% else %}
         <p class="lead">There are no tweets on the network! Tweet today!</p>
