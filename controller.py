@@ -87,7 +87,7 @@ if __name__ == '__main__':
             'chatterbot.logic.MathematicalEvaluation',
             'chatterbot.logic.TimeLogicAdapter'
         ],
-        database='.db/database.sqlite3',
+        database='db/database.sqlite3',
         filters=["chatterbot.filters.RepetitiveResponseFilter"]
     )
 
