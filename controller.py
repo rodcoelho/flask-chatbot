@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 
 from flask import Flask, render_template, request, session, json
-app = Flask(__name__)
 
 import os, sqlite3
 
 import orm
+
+app = Flask(__name__)
 
 connection = sqlite3.connect('db/entries.db')
 cursor = connection.cursor()
@@ -65,7 +66,7 @@ def tweets():
     return render_template('tweets.html', h1=h1, title=title, _name=_name, tweets=tweets)
 
 
-app.secret_key = 'poop'
+app.secret_key = 'canyoukeepasecret'
 
 if __name__ == '__main__':
     ####################################################################################################
@@ -118,5 +119,5 @@ if __name__ == '__main__':
     ####################################################################################################
 
     app.run(debug=True)
-    session['SECRET_KEY'] = 'poop'
+    session['SECRET_KEY'] = 'canyoukeepasecret'
 
