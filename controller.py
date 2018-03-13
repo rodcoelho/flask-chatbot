@@ -62,7 +62,7 @@ def tweets():
     orm.post_tweet(_tweet, bot_input, pk)
     # get all tweets from db
     tweets = orm.get_all_tweets()
-    tweets = tweets[::-1]
+    tweets = tweets[::-1][::-1]
     return render_template('tweets.html', h1=h1, title=title, _name=_name, tweets=tweets)
 
 

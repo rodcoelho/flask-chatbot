@@ -20,7 +20,8 @@
                 <ul class="nav nav-pills pull-right">
                     <li role="presentation" class="active"><a href="/">Home</a>
                     </li>
-                    <li role="presentation"><a href="/showSignUp">Sign In</a>
+
+
                     </li>
                     </li>
                 </ul>
@@ -36,71 +37,6 @@
         </div>
 
 
-    </div>
-<div class="container">
-    <div class="jumbotron">
- <div class="container">
-    <div class="jumbotron">
-  <h5>Chat History:</h5>
-        <p class="lead"></p>
-
-        {% if tweets %}
-            {% for tweet, name, response in tweets %}
-
-        <div class="row">
-            <div class="col">
-                    <div class="card mb-3 text-center bg-success text-white">
-                  <div class="card-body">
-                    <blockquote class="card-blockquote">
-                        <p class="lead" align="left" > <span class="badge badge-dark">bot</span> {{ response }} </p>
-                    </blockquote>
-                  </div>
-                </div>
-            </div>
-            <div class="col">
-
-            </div>
-        </div>
-
-
-                <div class="row">
-            <div class="col">
-
-            </div>
-            <div class="col">
-                  <div class="card mb-3 text-center bg-primary text-white">
-                  <div class="card-body">
-                    <blockquote class="card-blockquote">
-
-                     <p class="lead" align="right" > {{ tweet }} <span class="badge badge-dark">{{ name }} </span> </p>
-                    </blockquote>
-                  </div>
-                </div>
-
-            </div>
-        </div>
-                <!--<div class="card mb-3 text-center bg-success text-white col-9">-->
-                  <!--<div class="card-body">-->
-                    <!--<blockquote class="card-blockquote">-->
-                        <!--<p class="lead" align="left" > <span class="badge badge-dark">bot</span> {{ response }} </p>-->
-                    <!--</blockquote>-->
-                  <!--</div>-->
-                <!--</div>-->
-
-              <!--<div class="card mb-3 text-center bg-primary text-white col-9 mx-auto">-->
-                  <!--<div class="card-body">-->
-                    <!--<blockquote class="card-blockquote">-->
-
-                     <!--<p class="lead" align="right" > {{ tweet }} <span class="badge badge-dark">{{ name }} </span> </p>-->
-                    <!--</blockquote>-->
-                  <!--</div>-->
-                <!--</div>-->
-
-
-            {% endfor %}
-        {% else %}
-        <p class="lead">A chatbot has been born! Create an account and speak with it!</p>
-        {% endif %}
 </div>
 </div>
 </div>

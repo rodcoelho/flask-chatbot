@@ -1,6 +1,13 @@
 body {
   padding-top: 40px;
   padding-bottom: 40px;
+  overflow: hidden;
+}
+.h-scroll {
+    height: 90vh; /* %-height of the viewport */
+    position: fixed;
+    overflow-y: scroll;
+    position: absolute;
 }
 
 .form-signin {

@@ -1,19 +1,41 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<form class="form-signin" method="POST" action="/tweets">
-        <label for="inputName" class="sr-only">Name</label>
-        <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Say to ChatBot..." required autofocus>
-        <button id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="submit">Post</button>
-</form>
+<style>
+        .container {
+            overflow-y: scroll;
+            height: 700px;
+            padding: 1rem
+        }
+</style>
+
+
 
 <div class="container">
-    <div class="jumbotron">
-  <h5>Chat History:</h5>
+    <div class="jumbotron h-scroll">
         <p class="lead"></p>
 
         {% if tweets %}
             {% for tweet, name, response in tweets %}
+
+                        <div class="row">
+            <div class="col">
+
+            </div>
+            <div class="col">
+                  <div class="card mb-3 text-center bg-primary text-white">
+                  <div class="card-body">
+                    <blockquote class="card-blockquote">
+
+                     <p class="lead" align="right" > {{ tweet }} <span class="badge badge-dark">{{ name }} </span> </p>
+                    </blockquote>
+                  </div>
+                </div>
+
+            </div>
+        </div>
+
+
 
         <div class="row">
             <div class="col">
@@ -31,22 +53,7 @@
         </div>
 
 
-                <div class="row">
-            <div class="col">
 
-            </div>
-            <div class="col">
-                  <div class="card mb-3 text-center bg-primary text-white">
-                  <div class="card-body">
-                    <blockquote class="card-blockquote">
-
-                     <p class="lead" align="right" > {{ tweet }} <span class="badge badge-dark">{{ name }} </span> </p>
-                    </blockquote>
-                  </div>
-                </div>
-
-            </div>
-        </div>
                 <!--<div class="card mb-3 text-center bg-success text-white col-9">-->
                   <!--<div class="card-body">-->
                     <!--<blockquote class="card-blockquote">-->
@@ -69,6 +76,13 @@
         {% else %}
         <p class="lead">A chatbot has been born! Create an account and speak with it!</p>
         {% endif %}
+
+        <form class="float-right form-signin" method="POST" action="/tweets">
+        <label for="inputName" class="sr-only ">Name</label>
+        <input type="name" name="inputName" id="inputName" class="form-control " placeholder="Say to ChatBot..." required autofocus>
+        <button id="btnSignUp" class="btn btn-lg btn-primary btn-block " type="submit">Post</button>
+        </form>
+
 </div>
 </div>
 {% endblock %}
