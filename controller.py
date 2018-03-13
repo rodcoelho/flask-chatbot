@@ -7,7 +7,7 @@ import os, sqlite3
 
 import orm
 
-connection = sqlite3.connect('db/twitter.db')
+connection = sqlite3.connect('db/entries.db')
 cursor = connection.cursor()
 
 
@@ -87,7 +87,7 @@ if __name__ == '__main__':
             'chatterbot.logic.MathematicalEvaluation',
             'chatterbot.logic.TimeLogicAdapter'
         ],
-        database='./database.sqlite3',
+        database='.db/database.sqlite3',
         filters=["chatterbot.filters.RepetitiveResponseFilter"]
     )
 

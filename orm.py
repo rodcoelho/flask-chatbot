@@ -1,6 +1,6 @@
 import sqlite3
 
-connection = sqlite3.connect('db/twitter.db')
+connection = sqlite3.connect('db/entries.db')
 cursor = connection.cursor()
 
 #add user
@@ -11,7 +11,7 @@ cursor = connection.cursor()
 
 
 def check_if_user_exists(_name):
-    connection = sqlite3.connect('db/twitter.db')
+    connection = sqlite3.connect('db/entries.db')
     cursor = connection.cursor()
 
     #check if user exists
@@ -38,7 +38,7 @@ def check_if_user_exists(_name):
 
 
 def get_tweets_if_any(pk):
-    connection = sqlite3.connect('db/twitter.db')
+    connection = sqlite3.connect('db/entries.db')
     cursor = connection.cursor()
 
     # get all tweets with userID
@@ -51,7 +51,7 @@ def get_tweets_if_any(pk):
 
 
 def get_all_tweets():
-    connection = sqlite3.connect('db/twitter.db')
+    connection = sqlite3.connect('db/entries.db')
     cursor = connection.cursor()
 
     # get all tweets with userID
@@ -63,7 +63,7 @@ def get_all_tweets():
 
 
 def post_tweet(words, botresponse, userID):
-    connection = sqlite3.connect('db/twitter.db')
+    connection = sqlite3.connect('db/entries.db')
     cursor = connection.cursor()
 
     cursor.execute("""
