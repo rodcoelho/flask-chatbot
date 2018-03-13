@@ -1,6 +1,6 @@
 import sqlite3
 
-connection = sqlite3.connect('db/twitter.db')
+connection = sqlite3.connect('db/entries.db')
 cursor = connection.cursor()
 
 cursor.execute("""
