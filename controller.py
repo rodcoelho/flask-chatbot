@@ -57,7 +57,7 @@ def tweets():
     pk = orm.check_if_user_exists(_name)
     # get the new tweet
     _tweet = request.form['inputName']
-    bot_input = chatterbot.get_response(_tweet+'\n')
+    bot_input = chatterbot.get_response(_tweet)
     # post the new tweet
     orm.post_tweet(_tweet, bot_input, pk)
     # get all tweets from db

@@ -71,3 +71,4 @@ def post_tweet(words, botresponse, userID):
             VALUES ('{}','{}','{}');
                  """.format(str(userID[0]), str(words), str(botresponse)))
     connection.commit()
+
