@@ -103,7 +103,7 @@ if __name__ == '__main__':
         chatterbot.train([words, github])
     chatterbot.train([
         "Who is Rod?",
-        "LINK TO ABOUT PAGE"])
+        linkedin])
 
     chatterbot.set_trainer(ChatterBotCorpusTrainer)
     chatterbot.train("chatterbot.corpus.english.greetings")
