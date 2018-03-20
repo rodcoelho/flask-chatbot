@@ -65,10 +65,9 @@ def get_all_tweets():
 def post_tweet(words, botresponse, userID):
     connection = sqlite3.connect('db/entries.db')
     cursor = connection.cursor()
-
     cursor.execute("""
             INSERT INTO tweets(userID,tweet,response)
-            VALUES ('{}','{}','{}');
+            VALUES ("{}","{}","{}");
                  """.format(str(userID[0]), str(words), str(botresponse)))
     connection.commit()
 

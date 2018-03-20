@@ -3,7 +3,7 @@ body {
   padding-bottom: 40px;
   overflow: hidden;
 }
-.h-scroll {
+/.h-scroll {
     height: 90vh; /* %-height of the viewport */
     position: fixed;
     overflow-y: scroll;
