@@ -104,6 +104,9 @@ if __name__ == '__main__':
     chatterbot.train([
         "Who is Rod?",
         linkedin])
+    chatterbot.train([
+        "What is the best bootcamp?",
+        "Byte Academy, is that even a question...?"])
 
     chatterbot.set_trainer(ChatterBotCorpusTrainer)
     chatterbot.train("chatterbot.corpus.english.greetings")
